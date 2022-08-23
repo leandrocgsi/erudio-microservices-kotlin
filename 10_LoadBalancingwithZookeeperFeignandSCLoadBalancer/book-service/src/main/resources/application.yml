@@ -1,0 +1,25 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: book-service
+  cloud:
+    zookeeper:
+      discovery:
+        enabled: true
+      connect-string: localhost:2181
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_service?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+logging:
+  level:
+    '[org.apache.zookeeper.ClientCnxn]': WARN
