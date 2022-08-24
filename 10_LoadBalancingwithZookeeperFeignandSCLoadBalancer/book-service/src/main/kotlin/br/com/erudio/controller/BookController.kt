@@ -38,7 +38,7 @@ class BookController {
         val cambio = proxy.getCambio(book.price, "USD", currency)
 
         val port = environment.getProperty("local.server.port")
-        book.environment = "$port FEIGN"
+        book.environment = "BOOK PORT: $port CAMBIO PORT: ${cambio!!.environment}"
         book.currency = currency
         book.price = cambio!!.convertedValue
         return book
