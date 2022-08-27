@@ -23,7 +23,8 @@ class ApiGatewayConfiguration {
             }
             .route{ p: PredicateSpec ->
                 p.path("/cambio-service/**").uri("lb://cambio-service/")
-            }            .route{ p: PredicateSpec ->
+            }
+            .route{ p: PredicateSpec ->
                 p.path("/book-service/**").uri("lb://book-service/")
             }
             .build()
