@@ -4,9 +4,9 @@ spring:
   application:
     name: api-gateway
   cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+    #gateway:
+      #discovery:
+        #locator:
+          #enabled: true
     zookeeper:
       connect-string: localhost:2181
