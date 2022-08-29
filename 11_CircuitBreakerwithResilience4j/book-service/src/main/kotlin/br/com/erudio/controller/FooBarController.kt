@@ -1,5 +1,6 @@
 package br.com.erudio.controller
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter
 import io.github.resilience4j.retry.annotation.Retry
@@ -19,7 +20,8 @@ class FooBarController {
     @GetMapping("/foo-bar")
     //@Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
     //@CircuitBreaker(name = "default", fallbackMethod = "fallbackMethod")
-    @RateLimiter(name = "default")
+    //@RateLimiter(name = "default")
+    @Bulkhead(name = "default")
     fun fooBar() : String? {
 
         logger.info("Request foo-bar is received!!")

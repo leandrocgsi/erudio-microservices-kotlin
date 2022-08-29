@@ -7,11 +7,17 @@ resilience4j:
         #maxAttempts: 5
         #waitDuration: 1s
         #enableExponentialBackoff: true
-  ratelimiter:
+  #ratelimiter:
+    #instances:
+      #default:
+        #limitForPeriod: 2
+        #limitRefreshPeriod: 10s
+  bulkhead:
     instances:
       default:
-        limitForPeriod: 2
-        limitRefreshPeriod: 10s
+        maxConcurrentCalls: 10
+      foo-bar:
+        maxConcurrentCalls: 10
 spring:
   application:
     name: book-service
