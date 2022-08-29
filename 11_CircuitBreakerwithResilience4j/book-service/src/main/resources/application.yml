@@ -1,12 +1,17 @@
 server:
   port: 8100
 resilience4j:
-  retry:
+  #retry:
+    #instances:
+      #foo-bar:
+        #maxAttempts: 5
+        #waitDuration: 1s
+        #enableExponentialBackoff: true
+  ratelimiter:
     instances:
-      foo-bar:
-        maxAttempts: 5
-        waitDuration: 1s
-        enableExponentialBackoff: true
+      default:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10s
 spring:
   application:
     name: book-service
