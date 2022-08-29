@@ -1,5 +1,12 @@
 server:
   port: 8100
+resilience4j:
+  retry:
+    instances:
+      foo-bar:
+        maxAttempts: 5
+        waitDuration: 1s
+        enableExponentialBackoff: true
 spring:
   application:
     name: book-service

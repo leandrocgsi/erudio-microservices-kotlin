@@ -13,7 +13,7 @@ class LoggingFilter : GlobalFilter{
     private val logger = LoggerFactory.getLogger(LoggingFilter::class.java)
 
     override fun filter(exchange: ServerWebExchange, chain: GatewayFilterChain): Mono<Void> {
-        logger.info("Original request path -> {}", exchange.request.path)
+        //logger.info("Original request path -> ${exchange.request.path}")
         return chain.filter(exchange)
     }
 }
